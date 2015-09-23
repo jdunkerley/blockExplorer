@@ -1,0 +1,46 @@
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col-sm-9">
+      <h3 ng-show="blockCtrl.object">Block Id {{ blockCtrl.object.height }}</h3><br/>
+      <small ng-show="blockCtrl.currentStatus">{{ blockCtrl.currentStatus }}</small>
+    </div>
+    <div class="col-sm-3 text-right">
+      <a class="btn btn-primary btn-sm" ng-href="#/block/{{blockCtrl.object.previousblockhash}}" ng-show="blockCtrl.object.previousblockhash">Prev Block</a>
+      <a class="btn btn-primary btn-sm" ng-href="#/block/{{blockCtrl.object.nextblockhash}}" ng-show="blockCtrl.object.nextblockhash">Next Block</a>
+    </div>
+  </div>
+  <div class="row" ng-show="blockCtrl.object">
+    <div class="col-xl-8">
+      <h4>Details:</h4>
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Block Hash</th><td>{{blockCtrl.object.hash}}</td></tr>
+        <tr><th scope="row">Merkle Root</th><td>{{blockCtrl.object.merkleroot}}</td></tr>
+        <tr ng-show="blockCtrl.object.poolInfo"><th scope="row">Mined by</th><td><a ng-href="{{blockCtrl.object.poolInfo.url}}">{{blockCtrl.object.poolInfo.poolName}}</a></td></tr>
+        <tr><th scope="row">Timestamp</th><td>22-Sep-2015 13:31:21</td></tr>
+        <tr><th scope="row">Version</th><td>{{blockCtrl.object.version}}</td></tr>
+        <tr><th scope="row">Nonce</th><td>{{blockCtrl.object.nonce}}</td></tr>
+        <tr><th scope="row">Bits</th><td>{{blockCtrl.object.bits}}</td></tr>
+        <tr><th scope="row">Difficulty</th><td>{{blockCtrl.object.difficulty}}</td></tr>
+        <tr><th scope="row">Reward</th><td>{{blockCtrl.object.reward}}</td></tr>
+        <tr><th scope="row">Size</th><td>{{blockCtrl.object.size}}</td></tr>
+        <tr><th scope="row">Height</th><td>{{blockCtrl.object.height}}</td></tr>
+        <tr><th scope="row">Confirmations</th><td>{{blockCtrl.object.confirmations}}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xl-4">
+      <h4>Transactions: {{blockCtrl.object.tx.length}}</h4>
+      <ul>
+        <li ng-repeat="txHash in blockCtrl.object.tx"><small>{{txHash}}</small></li>
+      </ul>
+    </div>
+  </div>
+</div>

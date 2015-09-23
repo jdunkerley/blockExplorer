@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+
+  <title>My Block Explorer</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" />
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-inverse">
+    <a class="navbar-brand" href="">Block Explorer</a>
+    <form class="form-inline navbar-form pull-right">
+      <input class="form-control" type="text" placeholder="Hash, Height or Index">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </nav>
+
+  <br/>
+
+  <div ng-view></div>
+
+  <footer class="text-muted text-center">Block Explorer app: v<span app-version></span></footer>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-route.min.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="components/version/version.js"></script>
+  <script type="text/javascript" src="components/version/version-directive.js"></script>
+  <script type="text/javascript" src="cards/cards.js"></script>
+  <script type="text/javascript" src="block/block.js"></script>
+</body>
+</html>
