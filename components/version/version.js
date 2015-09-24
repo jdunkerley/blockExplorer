@@ -1,7 +1,8 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('myApp.version', [
-  'myApp.version.version-directive'
-])
-
-.value('version', '0.1');
+  angular.module('blockExplorer.version', [
+    'blockExplorer.version.version-directive'
+  ])
+    .value('version', '0.1');
+})();

@@ -1,8 +1,7 @@
-<div class="container-fluid" >
   <div class="row">
     <div class="col-sm-9">
-      <h3 ng-show="blockCtrl.object">Block Id {{ blockCtrl.object.height }}</h3><br/>
       <small ng-show="blockCtrl.currentStatus">{{ blockCtrl.currentStatus }}</small>
+      <h3 ng-show="blockCtrl.object">Block Id {{ blockCtrl.object.height }}</h3>
     </div>
     <div class="col-sm-3 text-right">
       <a class="btn btn-primary btn-sm" ng-href="#/block/{{blockCtrl.object.previousblockhash}}" ng-show="blockCtrl.object.previousblockhash">Prev Block</a>
@@ -43,4 +42,3 @@
       </ul>
     </div>
   </div>
-</div>

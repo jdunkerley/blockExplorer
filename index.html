@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="blockExplorer">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,20 +8,23 @@
 
   <title>My Block Explorer</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css"/>
 </head>
 <body>
-  <nav class="navbar navbar-dark bg-inverse">
-    <a class="navbar-brand" href="">Block Explorer</a>
-    <form class="form-inline navbar-form pull-right">
-      <input class="form-control" type="text" placeholder="Hash, Height or Index">
-      <button class="btn btn-primary" type="submit">Search</button>
-    </form>
+    <nav class="navbar navbar-dark navbar-static-top bg-inverse">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#/">Block Explorer</a>
+        <form class="form-inline navbar-form pull-right">
+          <input class="form-control" type="text" placeholder="Hash, Height or Index" />
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+    </div>
   </nav>
 
-  <br/>
-
-  <div ng-view></div>
+  <div class="container-fluid">
+    <div class="row">&nbsp;</div>
+    <div ng-view></div>
+  </div>
 
   <footer class="text-muted text-center">Block Explorer app: v<span app-version></span></footer>
 
