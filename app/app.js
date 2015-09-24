@@ -1,13 +1,15 @@
-'use strict';
+(function() {
+  'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'angular-storage',
-  'myApp.cards',
-  'myApp.block',
-  'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/cards'});
-}]);
+  // Declare app level module which depends on views, and components
+  angular.module('blockExplorer', [
+    'ngRoute',
+    'blockExplorer.cards',
+    'blockExplorer.block',
+    'blockExplorer.version'
+  ])
+    .config(['$routeProvider', function($routeProvider) {
+      $routeProvider.otherwise({redirectTo: '/cards'});
+    }]);
+
+})();
