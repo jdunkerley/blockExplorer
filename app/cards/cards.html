@@ -1,14 +1,21 @@
-<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 hidden-sm">
-            <span ng-if="cardsCtrl.currentStatus">
-                {{ cardsCtrl.currentStatus }} [ loaded {{ cardsCtrl.blocks.length }} of {{ cardsCtrl.display }} ]
-            </span>
+        <div class="col-md-7 hidden-sm">
+            <small ng-show="cardsCtrl.currentStatus" class="text-muted">
+                {{ cardsCtrl.currentStatus }}
+            </small>
         </div>
-        <div class="col-md-4 text-right">
-            Display :
-            <select ng-model="cardsCtrl.display" ng-options="item for item in cardsCtrl.displayOptions" ng-change="cardsCtrl.displayChanged()" ng-disabled="cardsCtrl.currentStatus">
-            </select> items
+        <div class="col-md-2 col-sm-6">
+            <progress ng-show="cardsCtrl.currentStatus" class="progress progress-striped" value="{{ cardsCtrl.blocks.length }}" max="{{ cardsCtrl.display }}">loaded {{ cardsCtrl.blocks.length }} of {{ cardsCtrl.display }}</progress>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <form class="pull-right">
+                <fieldset class="form-group">
+                    <label for="display">Display </label>
+                    <select id="display" ng-model="cardsCtrl.display" ng-options="item for item in cardsCtrl.displayOptions" ng-change="cardsCtrl.displayChanged()" ng-disabled="cardsCtrl.currentStatus">
+                    </select>
+                    items
+                </fieldset>
+            </form>
         </div>
     </div>
     <div class="row">
@@ -30,4 +37,3 @@
             <a ng-href="#/cards/{{ cardsCtrl.nextBlock }}">Next {{ cardsCtrl.display }} Items...</a><br/>
         </div>
     </div>
-</div>
