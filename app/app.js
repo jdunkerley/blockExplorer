@@ -6,6 +6,7 @@
     'ngRoute',
     'blockExplorer.cards',
     'blockExplorer.block',
+    'blockExplorer.search',
     'blockExplorer.version'
   ])
     .config(['$routeProvider', function($routeProvider) {

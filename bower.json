@@ -5,5 +5,10 @@
   "homepage": "https://github.com/angular/angular-seed",
   "license": "MIT",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-mocks": "~1.4.6",
+    "angular-route": "~1.4.6",
+    "moment": "~2.10.6"
+  }
 }

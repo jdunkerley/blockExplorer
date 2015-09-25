@@ -57,7 +57,9 @@
           url: baseUrl + 'block-index/' + height
         })
           .then(function(response) {
-            return response.data.blockHash;
+            return response.data.blockHash || -1;
+          }, function(response) {
+            return -1;
           });
       }
 

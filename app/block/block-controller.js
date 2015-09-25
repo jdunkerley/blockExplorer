@@ -14,11 +14,14 @@
     }])
     .controller('BlockCtrl', ['bitCoinService', '$routeParams', function(bitCoinService, $routeParams) {
       var self = this;
+      this.hash = $routeParams.hash;
       this.currentStatus = 'Loading ...';
 
       bitCoinService.getBlock($routeParams.hash)
         .then(function(block) {
-          self.object = block;
+          if (block.hash) {
+            self.object = block;
+          }
           self.currentStatus = false;
         });
     }]);

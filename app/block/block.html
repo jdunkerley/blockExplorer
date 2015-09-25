@@ -8,6 +8,11 @@
       <a class="btn btn-primary btn-sm" ng-href="#/block/{{blockCtrl.object.nextblockhash}}" ng-show="blockCtrl.object.nextblockhash">Next Block</a>
     </div>
   </div>
+  <div class="row" ng-show="!blockCtrl.object && !blockCtrl.currentStatus">
+    <div class="alert alert-danger">
+      Invalid block hash {{ blockCtrl.hash }}
+    </div>
+  </div>
   <div class="row" ng-show="blockCtrl.object">
     <div class="col-xl-8">
       <h4>Details:</h4>
