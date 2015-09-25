@@ -14,8 +14,8 @@
     <nav class="navbar navbar-dark navbar-static-top bg-inverse">
       <div class="container-fluid">
         <a class="navbar-brand" href="#/">Block Explorer</a>
-        <form class="form-inline navbar-form pull-right">
-          <input class="form-control" type="text" placeholder="Hash, Height or Index" />
+        <form class="form-inline navbar-form pull-right" ng-controller="SearchCtrl as searchCtrl" ng-submit="searchCtrl.submit()">
+          <input class="form-control" type="text" placeholder="Hash, Height or Index" ng-model="searchCtrl.query" />
           <button class="btn btn-primary" type="submit">Search</button>
         </form>
     </div>
@@ -40,5 +40,6 @@
   <script type="text/javascript" src="components/momentFormat/momentFormat-filter.js"></script>
   <script type="text/javascript" src="cards/cards-controller.js"></script>
   <script type="text/javascript" src="block/block-controller.js"></script>
+  <script type="text/javascript" src="search/search-controller.js"></script>
 </body>
 </html>
