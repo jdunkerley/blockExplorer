@@ -27,13 +27,13 @@
                 </p>
                 <a ng-href="#/block/{{ block.hash }}" class="card-link pull-right">More</a><br/>
                 <p class="text-muted text-right">
-                    <small><span ng-if="block.poolInfo"><strong><a ng-href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a></strong> @</span> {{ block.time | date:'dd-MMM HH:mm' }}</small>
+                    <small><span ng-if="block.poolInfo"><strong><a ng-href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a></strong> @</span> {{ block.timestamp | fromNow }}</small>
                 </p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-offset-10 col-sm-2">
-            <a ng-href="#/cards/{{ cardsCtrl.nextBlock }}">Next {{ cardsCtrl.display }} Items...</a><br/>
+            <a ng-href="#/cards/{{ cardsCtrl.blocks[cardsCtrl.blocks.length - 1].previousblockhash || '' }}">Next {{ cardsCtrl.display }} Items...</a><br/>
         </div>
     </div>

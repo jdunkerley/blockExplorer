@@ -23,7 +23,7 @@
         <tr><th scope="row">Block Hash</th><td>{{blockCtrl.object.hash}}</td></tr>
         <tr><th scope="row">Merkle Root</th><td>{{blockCtrl.object.merkleroot}}</td></tr>
         <tr ng-show="blockCtrl.object.poolInfo"><th scope="row">Mined by</th><td><a ng-href="{{blockCtrl.object.poolInfo.url}}">{{blockCtrl.object.poolInfo.poolName}}</a></td></tr>
-        <tr><th scope="row">Timestamp</th><td>22-Sep-2015 13:31:21</td></tr>
+        <tr><th scope="row">Timestamp</th><td>{{ blockCtrl.object.timestamp | date:'d-MMM-yyyy HH:mm:ss' }}</td></tr>
         <tr><th scope="row">Version</th><td>{{blockCtrl.object.version}}</td></tr>
         <tr><th scope="row">Nonce</th><td>{{blockCtrl.object.nonce}}</td></tr>
         <tr><th scope="row">Bits</th><td>{{blockCtrl.object.bits}}</td></tr>
