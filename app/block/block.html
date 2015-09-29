@@ -1,6 +1,12 @@
+  <div class="row" ng-show="blockCtrl.currentStatus">
+    <div>
+      <div class="alert" ng-class="{'alert-info': !blockCtrl.failed, 'alert-danger': blockCtrl.failed}">
+        {{ blockCtrl.currentStatus }}
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-9">
-      <small ng-show="blockCtrl.currentStatus">{{ blockCtrl.currentStatus }}</small>
       <h3 ng-show="blockCtrl.object">Block Id {{ blockCtrl.object.height }}</h3>
     </div>
     <div class="col-sm-3 text-right">
@@ -43,7 +49,7 @@
     <div class="col-xl-4">
       <h4>Transactions: {{blockCtrl.object.tx.length}}</h4>
       <ul>
-        <li ng-repeat="txHash in blockCtrl.object.tx"><small>{{txHash}}</small></li>
+        <li ng-repeat="txHash in blockCtrl.object.tx"><small><a ng-href="#/tx/{{blockCtrl.hash}}/{{txHash}}">{{txHash}}</a></small></li>
       </ul>
     </div>
   </div>

@@ -5,6 +5,7 @@
     .factory('bitCoinService', ['$q', '$http', function($q, $http) {
       var baseUrl = 'https://blockexplorer.com/api/';
       var cache = {};
+      var txCache = {};
 
       function lastBlockHash(isARetry) {
         return $http({
@@ -63,9 +64,34 @@
           });
       }
 
+      function getTransactionFromWeb(txHash) {
+        return $http({method: 'GET', url: baseUrl + 'tx/' + txHash})
+          .then(function(response) {
+            // Success
+            if (response.data.time) {
+              response.data.timestamp = moment('19700101', 'YYYYMMDD').add(response.data.time, 's').toDate();
+            }
+            txCache[txHash] = response.data;
+            return response.data;
+          }, function(response) {
+            return {error: response.message};
+          });
+      }
+
+      function getTransaction(txHash) {
+        if (txCache[txHash]) {
+          var def =  $q.defer();
+          def.resolve(txCache[txHash]);
+          return def.promise;
+        }
+
+        return getTransactionFromWeb(txHash);
+      }
+
       return {
         lastBlockHash: lastBlockHash,
         getBlock: getBlock,
+        getTransaction: getTransaction,
         getHashFromHeight: getHashFromHeight
       };
     }]);
