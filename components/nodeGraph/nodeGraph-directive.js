@@ -65,14 +65,12 @@
                 if (nodeDblClick) { nodeDblClick(d); }
               });
 
-            force.on('end', function() {
-              if (statusMessage) { statusMessage('Done'); }
-
+            function tick() {
               node.attr({
-                  r: 10,
-                  cx: function(d) { return d.x; },
-                  cy: function(d) { return d.y; }
-                })
+                r: 10,
+                cx: function(d) { return d.x; },
+                cy: function(d) { return d.y; }
+              })
                 .classed('expanded', function(d) { return d.expanded; });
               link.attr({
                 x1: function(d) { return d.source.x; },
@@ -80,7 +78,11 @@
                 x2: function(d) { return d.target.x; },
                 y2: function(d) { return d.target.y; }
               });
+            }
 
+            force.on('tick', tick);
+            force.on('end', function() {
+              if (statusMessage) { statusMessage('Done'); }
             });
 
             if (statusMessage) { statusMessage('Running Force Layout...'); }
