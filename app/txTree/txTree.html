@@ -28,7 +28,8 @@
 <div class="row" ng-show="txTreeCtrl.rootTransaction">
     <div class="col-sm-12">
         <div class="container">
-            <node-graph ng-show="txTreeCtrl.rootTransaction" nodes="txTreeCtrl.nodes" links="txTreeCtrl.links" node-double-click="txTreeCtrl.expandNode" status-message="txTreeCtrl.statusMessage">
+            <h5>{{ txTreeCtrl.nodes.length }} nodes added. Use scroll wheel to zoom and drag to pan. Double click on orange nodes to expand.</h5>
+            <node-graph ng-show="txTreeCtrl.rootTransaction" nodes="txTreeCtrl.nodes" links="txTreeCtrl.links" node-double-click="txTreeCtrl.expandNode(datum)" not-status-message="txTreeCtrl.statusMessage(message)">
             </node-graph>
         </div>
     </div>
