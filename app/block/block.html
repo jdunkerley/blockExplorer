@@ -49,7 +49,7 @@
     <div class="col-xl-4">
       <h4>Transactions: {{blockCtrl.object.tx.length}}</h4>
       <ul>
-        <li ng-repeat="txHash in blockCtrl.object.tx"><small><a ng-href="#/tx/{{blockCtrl.hash}}/{{txHash}}">{{txHash}}</a></small></li>
+        <li ng-repeat="txId in blockCtrl.object.tx"><small><a ng-href="#/tx/{{blockCtrl.hash}}/{{txId}}">{{txId}}</a></small></li>
       </ul>
     </div>
   </div>

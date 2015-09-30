@@ -64,28 +64,28 @@
           });
       }
 
-      function getTransactionFromWeb(txHash) {
-        return $http({method: 'GET', url: baseUrl + 'tx/' + txHash})
+      function getTransactionFromWeb(txId) {
+        return $http({method: 'GET', url: baseUrl + 'tx/' + txId})
           .then(function(response) {
             // Success
             if (response.data.time) {
               response.data.timestamp = moment('19700101', 'YYYYMMDD').add(response.data.time, 's').toDate();
             }
-            txCache[txHash] = response.data;
+            txCache[txId] = response.data;
             return response.data;
           }, function(response) {
             return {error: response.message};
           });
       }
 
-      function getTransaction(txHash) {
-        if (txCache[txHash]) {
+      function getTransaction(txId) {
+        if (txCache[txId]) {
           var def =  $q.defer();
-          def.resolve(txCache[txHash]);
+          def.resolve(txCache[txId]);
           return def.promise;
         }
 
-        return getTransactionFromWeb(txHash);
+        return getTransactionFromWeb(txId);
       }
 
       return {
