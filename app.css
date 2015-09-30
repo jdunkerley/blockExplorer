@@ -1,0 +1,27 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+rect.chart.bg {
+    fill: #f9f9f9;
+    stroke: #555555;
+}
+
+svg.chart {
+    fill: #555555;
+}
+
+.node {
+    fill: goldenrod;
+    stroke: #999999;
+    stroke-width: 1px;
+}
+
+.node.expanded {
+    fill: steelblue;
+}
+
+.link {
+    stroke: #666;
+    strike-width: 2px;
+}

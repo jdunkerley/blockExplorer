@@ -9,8 +9,9 @@
   <title>My Block Explorer</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="app.css"/>
 </head>
-<body>
+<body ng-cloak>
     <nav class="navbar navbar-dark navbar-static-top bg-inverse">
       <div class="container-fluid">
         <a class="navbar-brand" href="#/">Block Explorer</a>
@@ -28,6 +29,7 @@
 
   <footer class="text-muted text-center">Block Explorer app: v<span app-version></span></footer>
 
+  <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-route.min.js"></script>
@@ -38,8 +40,10 @@
   <script type="text/javascript" src="components/version/version-directive.js"></script>
   <script type="text/javascript" src="components/bitcoin/bitcoin-service.js"></script>
   <script type="text/javascript" src="components/momentFormat/momentFormat-filter.js"></script>
+  <script type="text/javascript" src="components/nodeGraph/nodeGraph-directive.js"></script>
   <script type="text/javascript" src="cards/cards-controller.js"></script>
   <script type="text/javascript" src="block/block-controller.js"></script>
   <script type="text/javascript" src="search/search-controller.js"></script>
+  <script type="text/javascript" src="txTree/txTree-controller.js"></script>
 </body>
 </html>

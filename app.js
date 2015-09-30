@@ -7,6 +7,7 @@
     'blockExplorer.cards',
     'blockExplorer.block',
     'blockExplorer.search',
+    'blockExplorer.txTree',
     'blockExplorer.version'
   ])
     .config(['$routeProvider', function($routeProvider) {

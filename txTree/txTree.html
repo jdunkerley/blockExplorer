@@ -1,0 +1,36 @@
+<div class="row" ng-show="txTreeCtrl.currentStatus">
+    <div>
+        <div class="alert" ng-class="{'alert-info': !txTreeCtrl.failed, 'alert-danger': txTreeCtrl.failed}">
+            {{ txTreeCtrl.currentStatus }}
+        </div>
+    </div>
+</div>
+<div class="row" ng-show="txTreeCtrl.blockObject">
+    <div class="col-sm-9">
+        <h3>Block #{{txTreeCtrl.blockObject.height}}</h3>
+        <small>hash {{txTreeCtrl.blockObject.hash}}</small>
+    </div>
+    <div class="col-sm-3 text-right">
+        <a class="btn btn-primary btn-sm" ng-href="#/tx/{{txTreeCtrl.blockObject.previousblockhash}}" ng-show="txTreeCtrl.blockObject.previousblockhash">Prev Block</a>
+        <a class="btn btn-primary btn-sm" ng-href="#/tx/{{txTreeCtrl.blockObject.nextblockhash}}" ng-show="txTreeCtrl.blockObject.nextblockhash">Next Block</a>
+    </div>
+</div>
+<div class="row" ng-show="txTreeCtrl.txId">
+    <div class="col-sm-9">
+        <h4>Transaction #{{txTreeCtrl.txIndex}} of {{txTreeCtrl.blockObject.tx.length}}</h4>
+        <small>txid {{txTreeCtrl.txId}}</small>
+    </div>
+    <div class="col-sm-3 text-right">
+        <a class="btn btn-primary btn-sm" ng-href="#/tx/{{txTreeCtrl.blockHash}}/{{txTreeCtrl.previousTxId}}" ng-show="txTreeCtrl.previousTxId">Prev Tx</a>
+        <a class="btn btn-primary btn-sm" ng-href="#/tx/{{txTreeCtrl.blockHash}}/{{txTreeCtrl.nextTxId}}" ng-show="txTreeCtrl.nextTxId">Next Tx</a>
+    </div>
+</div>
+<div class="row" ng-show="txTreeCtrl.rootTransaction">
+    <div class="col-sm-12">
+        <div class="container">
+            <small>{{txTreeCtrl.rootTransaction.vin.length}} Connections</small>
+            <node-graph ng-show="txTreeCtrl.rootTransaction" nodes="txTreeCtrl.nodes" links="txTreeCtrl.links" node-double-click="txTreeCtrl.expandNode" status-message="txTreeCtrl.statusMessage">
+            </node-graph>
+        </div>
+    </div>
+</div>
