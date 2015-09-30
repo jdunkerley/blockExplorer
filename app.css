@@ -17,6 +17,10 @@ svg.chart {
     stroke-width: 1px;
 }
 
+.node.expanded.terminal {
+    fill: #555555;
+}
+
 .node.expanded {
     fill: steelblue;
 }

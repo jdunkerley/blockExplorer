@@ -30,7 +30,7 @@
       self.currentStatus = 'Initialising ...';
       self.statusMessage = function(message) {
         self.currentStatus = message;
-      }
+      };
 
       function loadBlockObject() {
         self.currentStatus = 'Loading block object for hash ' + self.blockHash + ' ...';
@@ -94,12 +94,13 @@
 
             for (var i = 0; i < txObject.vin.length; i++) {
               var childId = txObject.vin[i].txid;
+              var childIdx = self.nodes.length + newNodes.length;
               if (childId) {
-                var childIdx = self.nodes.length + newNodes.length;
                 self.nodeMap[childId] = childIdx;
-                newNodes.push({txId: childId, expanded: false});
-                newLinks.push({source: refNodeIdx, target: childIdx});
               }
+
+              newNodes.push({txId: childId, expanded: !childId});
+              newLinks.push({source: refNodeIdx, target: childIdx});
             }
 
             if (newNodes.length > 0) {
