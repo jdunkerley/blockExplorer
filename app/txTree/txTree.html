@@ -17,7 +17,7 @@
 </div>
 <div class="row" ng-show="txTreeCtrl.txId">
     <div class="col-sm-9">
-        <h4>Transaction #{{txTreeCtrl.txIndex}} of {{txTreeCtrl.blockObject.tx.length}}</h4>
+        <h4>Transaction #{{txTreeCtrl.txIndex + 1}} of {{txTreeCtrl.blockObject.tx.length}}</h4>
         <small>txid {{txTreeCtrl.txId}}</small>
     </div>
     <div class="col-sm-3 text-right">
@@ -28,7 +28,6 @@
 <div class="row" ng-show="txTreeCtrl.rootTransaction">
     <div class="col-sm-12">
         <div class="container">
-            <small>{{txTreeCtrl.rootTransaction.vin.length}} Connections</small>
             <node-graph ng-show="txTreeCtrl.rootTransaction" nodes="txTreeCtrl.nodes" links="txTreeCtrl.links" node-double-click="txTreeCtrl.expandNode" status-message="txTreeCtrl.statusMessage">
             </node-graph>
         </div>

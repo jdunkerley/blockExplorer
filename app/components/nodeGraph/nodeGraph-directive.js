@@ -41,7 +41,7 @@
             .charge(-200);
 
           // Create Render
-          var statusMessage = scope.statusMessage;
+          var stMessage = scope.statusMessage;
           var nodeDblClick = scope.nodeDoubleClick;
 
           var firstRender = false;
@@ -65,25 +65,33 @@
                 if (nodeDblClick) { nodeDblClick(d); }
               });
 
-            force.on('end', function() {
-              if (statusMessage) { statusMessage('Done'); }
+            // Do Classing
+            node
+              .classed('expanded', function(d) { return d.expanded; })
+              .classed('terminal', function(d) { return !d.txId; });
 
+            function tick() {
               node.attr({
-                  r: 10,
-                  cx: function(d) { return d.x; },
-                  cy: function(d) { return d.y; }
-                })
-                .classed('expanded', function(d) { return d.expanded; });
+                r: 10,
+                cx: function(d) { return d.x; },
+                cy: function(d) { return d.y; }
+              });
               link.attr({
                 x1: function(d) { return d.source.x; },
                 y1: function(d) { return d.source.y; },
                 x2: function(d) { return d.target.x; },
                 y2: function(d) { return d.target.y; }
               });
+            }
 
+            force.on('tick', tick);
+            force.on('end', function() {
+              if (stMessage) {
+                stMessage('Done');
+              }
             });
 
-            if (statusMessage) { statusMessage('Running Force Layout...'); }
+            if (stMessage) { stMessage('Running Force Layout... ' + Date.now()); }
             force.start();
           };
 
