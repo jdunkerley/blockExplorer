@@ -5,6 +5,7 @@
 rect.chart.bg {
     fill: #f9f9f9;
     stroke: #555555;
+    cursor: move;
 }
 
 svg.chart {
@@ -17,12 +18,27 @@ svg.chart {
     stroke-width: 1px;
 }
 
+.node:hover {
+    stroke: #000;
+    stroke-width: 2px;
+    cursor: zoom-in;
+}
+
 .node.expanded.terminal {
     fill: #555555;
 }
 
 .node.expanded {
     fill: steelblue;
+}
+.node.expanded:hover {
+    stroke: #999999;
+    stroke-width: 1px;
+    cursor: default;
+}
+
+.node.initial {
+    fill: maroon;
 }
 
 .link {
