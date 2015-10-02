@@ -27,7 +27,10 @@
 </div>
 <div class="row" ng-show="txTreeCtrl.rootTransaction">
     <div class="col-sm-10">
-        <span ng-show="txTreeCtrl.hoveredNode">Hash </span>
+        <span ng-show="txTreeCtrl.hoveredNode">
+            Hash {{txTreeCtrl.hoveredTxId}} @ {{txTreeCtrl.hoveredNode.timestamp | date:'dd MMM HH:mm'}}<br/>
+            {{txTreeCtrl.hoveredNode.valueIn}} BTC value in.
+        </span>
     </div>
     <div class="col-sm-2 text-right">
         <a class="btn btn-info btn-sm" ng-click="txTreeCtrl.expandAll()">Expand All</a>

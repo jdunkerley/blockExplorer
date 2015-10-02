@@ -140,7 +140,7 @@
         self.hoveredTxId = d.txId;
         bitCoinService.getTransaction(d.txId)
           .then(function(txObj) {
-            if (self.hoveredTxId === txObj.txId) {
+            if (self.hoveredTxId === txObj.txid) {
               self.hoveredNode = txObj;
             }
           });
