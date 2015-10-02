@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="app.css"/>
 </head>
-<body ng-cloak>
+<body>
     <nav class="navbar navbar-dark navbar-static-top bg-inverse">
       <div class="container-fluid">
         <a class="navbar-brand" href="#/">Block Explorer</a>
-        <form class="form-inline navbar-form pull-right" ng-controller="SearchCtrl as searchCtrl" ng-submit="searchCtrl.submit()">
+        <form class="form-inline navbar-form pull-right" ng-controller="SearchCtrl as searchCtrl" ng-submit="searchCtrl.submit()" ng-cloak>
           <input class="form-control" type="text" placeholder="Hash, Height or Index" ng-model="searchCtrl.query" />
           <button class="btn btn-primary" type="submit">Search</button>
         </form>
@@ -27,7 +27,7 @@
     <div ng-view></div>
   </div>
 
-  <footer class="text-muted text-center">Block Explorer app: v<span app-version></span></footer>
+  <footer class="text-muted text-center" ng-cloak>Block Explorer app: v<span app-version></span></footer >
 
   <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>

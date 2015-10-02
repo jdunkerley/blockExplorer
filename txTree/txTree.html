@@ -26,9 +26,24 @@
     </div>
 </div>
 <div class="row" ng-show="txTreeCtrl.rootTransaction">
+    <div class="col-sm-10">
+        <span ng-show="txTreeCtrl.hoveredNode">
+            Hash {{txTreeCtrl.hoveredTxId}} @ {{txTreeCtrl.hoveredNode.timestamp | date:'dd MMM HH:mm'}} - {{txTreeCtrl.hoveredNode.valueIn}} BTC value in.
+        </span>
+    </div>
+    <div class="col-sm-2 text-right">
+        <a class="btn btn-info btn-sm" ng-click="txTreeCtrl.expandAll()">Expand All</a>
+    </div>
+</div>
+<div class="row" ng-show="txTreeCtrl.rootTransaction">
     <div class="col-sm-12">
         <div class="container">
-            <node-graph ng-show="txTreeCtrl.rootTransaction" nodes="txTreeCtrl.nodes" links="txTreeCtrl.links" node-double-click="txTreeCtrl.expandNode" status-message="txTreeCtrl.statusMessage">
+            <h5>{{ txTreeCtrl.nodes.length }} nodes added. Use scroll wheel to zoom and drag to pan. Click on orange nodes to expand.</h5>
+            <node-graph min-zoom="0.001" max-zoom="2"
+                        nodes="txTreeCtrl.nodes" links="txTreeCtrl.links"
+                        node-click="txTreeCtrl.expandNode(datum)"
+                        node-mouse-over="txTreeCtrl.mouseOver(datum)"
+                        node-mouse-out="txTreeCtrl.mouseOut(datum)">
             </node-graph>
         </div>
     </div>
