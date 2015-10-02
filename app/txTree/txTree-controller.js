@@ -17,7 +17,7 @@
         controllerAs: 'txTreeCtrl'
       });
     }])
-    .controller('TxTreeCtrl', ['bitCoinService', '$routeParams', function (bitCoinService, $routeParams) {
+    .controller('TxTreeCtrl', ['bitCoinService', '$routeParams', '$scope', function (bitCoinService, $routeParams, $scope) {
       var self = this;
       self.blockHash = $routeParams.blockHash;
 
@@ -149,6 +149,7 @@
       self.mouseOut = function(d) {
         self.hoveredTxId = false;
         self.hoveredNode = false;
+        $scope.$apply();
       };
 
       loadBlockObject();

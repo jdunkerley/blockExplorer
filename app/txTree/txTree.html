@@ -28,8 +28,7 @@
 <div class="row" ng-show="txTreeCtrl.rootTransaction">
     <div class="col-sm-10">
         <span ng-show="txTreeCtrl.hoveredNode">
-            Hash {{txTreeCtrl.hoveredTxId}} @ {{txTreeCtrl.hoveredNode.timestamp | date:'dd MMM HH:mm'}}<br/>
-            {{txTreeCtrl.hoveredNode.valueIn}} BTC value in.
+            Hash {{txTreeCtrl.hoveredTxId}} @ {{txTreeCtrl.hoveredNode.timestamp | date:'dd MMM HH:mm'}} - {{txTreeCtrl.hoveredNode.valueIn}} BTC value in.
         </span>
     </div>
     <div class="col-sm-2 text-right">
